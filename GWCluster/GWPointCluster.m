@@ -11,7 +11,7 @@
 @implementation GWPointCluster
 @synthesize points;
 
--(id)init
+- (id)init
 {
     self = [super init];
     
@@ -23,19 +23,35 @@
     return self;
 }
 
--(void)addPoint:(CGPoint)point
+- (void)addPoint:(CGPoint)point
 {
     GWPoint *gwPoint = [[GWPoint alloc] initWithPoint:point];
     [self.points addObject:gwPoint];
 }
 
--(void)cluster
+- (void)clusterPoints
 {
-    NSArray *means = [self.points subarrayWithRange:NSMakeRange(0, 2)];
+    NSArray *means = [self.points subarrayWithRange:NSMakeRange(0, 3)];
     GWCluster *cluster = [[GWCluster alloc] initWithObjects:self.points means:means averageCluster:^(NSArray *clusterPoints) {
-        return [GWPoint calculateMeanOfPoints:self.points];
+        return [GWPoint calculateMeanOfPoints:clusterPoints];
     }];
+    [cluster run];
+    
+    NSMutableArray *clusters = cluster.clusters;
+    NSArray *colors = [GWPointCluster generateKColors:[clusters count]];
+    for (int i = 0; i < [clusters count]; i++)
+    {
+        NSLog(@"%d: %d", [clusters count], [clusters[i] count]);
+        for (GWPoint *point in clusters[i])
+        {
+            [point setColor:colors[i]];
+        }
+    }
+}
 
++ (NSArray *)generateKColors:(int)k
+{
+    return [[NSArray alloc] initWithObjects:[UIColor redColor], [UIColor greenColor], [UIColor blueColor], nil];
 }
 
 @end

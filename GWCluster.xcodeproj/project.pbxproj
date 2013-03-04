@@ -503,6 +503,7 @@
 				FA576D3F16DF2299005DC209 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA576D4016DF2299005DC209 /* Build configuration list for PBXNativeTarget "GWClusterTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +512,7 @@
 				FA576D4216DF2299005DC209 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

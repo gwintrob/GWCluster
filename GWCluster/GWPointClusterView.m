@@ -38,41 +38,43 @@
 - (void)tap:(UIGestureRecognizer *)gr
 {
     CGPoint point = [gr locationInView:self];
-    NSLog(@"adding point: %.0f,%.0f to cluster %@", point.x, point.y, self.cluster);
     [self.cluster addPoint:point];
     [self setNeedsDisplay];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)clusterPoints
 {
-
+    [self.cluster clusterPoints];
+    [self setNeedsDisplay];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-}
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-}
+// This might be faster than the GestureRecognizer
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    for (UITouch *t in touches) {
+//        if ([t tapCount] > 1) {
+//            [self resetCluster];
+//        }
+//    }
+//}
 
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"drawing cluster %@", self.cluster);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 10.0);
     CGContextSetLineCap(context, kCGLineCapRound);
-    [[UIColor blueColor] set];
     
     for (GWPoint *gwPoint in cluster.points) {
-        NSLog(@"drawing point");
+        [gwPoint.color set];
         CGPoint point = gwPoint.point;
         CGContextAddArc(context, point.x, point.y, 5, 0, 2*M_PI, YES);
         CGContextDrawPath(context, kCGPathFillStroke);
     }
 }
 
-- (void)resetCluster:(UIGestureRecognizer *)gr {
+- (void)resetCluster:(UIGestureRecognizer *)gr
+{
     [self resetCluster];
     [self setNeedsDisplay];
 }
@@ -81,7 +83,6 @@
     NSLog(@"resetting cluster");
     GWPointCluster *newCluster = [[GWPointCluster alloc] init];
     [self setCluster:newCluster];
-    NSLog(@"new cluster %@", self.cluster);
 }
 
 @end

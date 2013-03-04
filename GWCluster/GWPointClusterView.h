@@ -11,7 +11,8 @@
 
 @interface GWPointClusterView : UIView
 
-@property (nonatomic) GWPointCluster *cluster;
+@property (nonatomic, strong) GWPointCluster *cluster;
 - (void)resetCluster;
+- (void)clusterPoints;
 
 @end

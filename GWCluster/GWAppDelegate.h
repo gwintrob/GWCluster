@@ -13,7 +13,6 @@
 @interface GWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) GWViewController *viewController;
 
 @end

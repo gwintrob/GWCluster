@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GWPointClusterView.h"
 
 @interface GWViewController : UIViewController
 {
     IBOutlet UILabel *titleLabel;
-    int state;
+    IBOutlet UIButton *clusterButton;
 }
+
+@property (nonatomic, strong) GWPointClusterView *pcv;
+- (IBAction)clusterPoints:(id)sender;
 
 @end

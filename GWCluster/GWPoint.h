@@ -12,6 +12,7 @@
 @interface GWPoint : GWClusterObject
 
 @property (nonatomic) CGPoint point;
+@property (nonatomic) UIColor *color;
 
 - (id)initWithPoint:(CGPoint)newPoint;
 + (GWPoint *)calculateMeanOfPoints:(NSArray *)points;

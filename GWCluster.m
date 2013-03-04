@@ -7,6 +7,7 @@
 //
 
 #import "GWCluster.h"
+#import "GWPoint.h"
 
 @implementation GWCluster
 
@@ -56,6 +57,7 @@
                     minPenalty = penalty;
                 }
             }
+
             [self.clusters[bestCluster] addObject:obj];
         }
         
@@ -70,10 +72,11 @@
             }
                 
         }
+        
         [self setMeans:newMeans];
     }
     
-    return clusters;
+    return self.clusters;
 }
 
 @end

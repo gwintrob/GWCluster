@@ -13,6 +13,7 @@
 @interface GWPointCluster : NSObject
 
 @property (nonatomic) NSMutableArray *points;
--(void)addPoint:(CGPoint)point;
+- (void)addPoint:(CGPoint)point;
+- (void)clusterPoints;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation GWPoint
 
-@synthesize point;
+@synthesize color,point;
 
 - (id)initWithPoint:(CGPoint)newPoint
 {
@@ -19,6 +19,7 @@
     if (self)
     {
         [self setPoint:newPoint];
+        [self setColor:[UIColor blackColor]];
     }
     
     return self;
@@ -31,14 +32,14 @@
     return sqrt((xDist * xDist) + (yDist * yDist));
 }
 
-+ (double)averageInts:(int *)ints
++ (double)averageVals:(double *)vals
 {
-    int count = sizeof(ints) / sizeof(int);
+    int count = sizeof(vals);
     double total = 0;
     
     for(int i = 0; i < count; i++)
     {
-        total += ints[i];
+        total += vals[i];
     }
     
     return total / count;
@@ -49,11 +50,11 @@
     return [GWPoint distanceBetweenPoint:self.point point:otherPoint.point];
 }
 
-- (GWPoint *)calculateMeanOfPoints:(NSArray *)points
++ (GWPoint *)calculateMeanOfPoints:(NSArray *)points
 {
     int count = [points count];
-    int xVals[count];
-    int yVals[count];
+    double xVals[count];
+    double yVals[count];
     
     for(int i = 0; i < count; i++)
     {
@@ -62,11 +63,16 @@
         yVals[i] = p.y;
     }
     
-    double x = [GWPoint averageInts:xVals];
-    double y = [GWPoint averageInts:yVals];
+    double x = [GWPoint averageVals:xVals];
+    double y = [GWPoint averageVals:yVals];
     
     CGPoint newPoint = CGPointMake(x, y);
     return [[GWPoint alloc] initWithPoint:newPoint];
+}
+
+- (NSString *)description
+{
+    return [[NSString alloc] initWithFormat:@"<GWPoint: %.0f,%.0f (%@)>", point.x, point.y, color, nil];
 }
 
 @end
