@@ -31,8 +31,12 @@
 
 - (void)clusterPoints
 {
-//    NSArray *means = [self.points subarrayWithRange:NSMakeRange(0, k)];
     NSArray *means = [self generateMeans];
+    NSLog(@"nMeans %d", means.count);
+    for(GWPoint *p in means)
+    {
+        NSLog(@"%@", p);
+    }
     GWCluster *cluster = [[GWCluster alloc] initWithObjects:self.points means:means averageCluster:^(NSArray *clusterPoints) {
         return [GWPoint calculateMeanOfPoints:clusterPoints];
     }];
@@ -56,7 +60,15 @@
     for(int i = 0; i < k; i++)
     {
         int randomI = arc4random() % k;
-        [means addObject:points[randomI]];
+        GWPoint *point = points[randomI];
+        
+        while ([means containsObject:point])
+        {
+            randomI = arc4random() % k;
+            point = points[randomI];
+        }
+                
+        [means addObject:point];
     }
     
     return means;

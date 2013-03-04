@@ -18,6 +18,5 @@
 @property (nonatomic) NSMutableArray *points;
 - (void)addPoint:(CGPoint)point;
 - (void)clusterPoints;
-- (void)setK:(int)k;
 
 @end

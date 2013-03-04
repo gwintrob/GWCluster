@@ -51,7 +51,7 @@
     }
     
     [self.pcv.cluster setK:newK];
-    [titleLabel setText:[NSString stringWithFormat:@"%d-Means Clustering", newK]];
+    [titleLabel setText:[NSString stringWithFormat:@"%d-means Clustering", newK]];
 }
 
 - (void)clusterPoints:(id)sender
