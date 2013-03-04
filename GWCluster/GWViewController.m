@@ -7,32 +7,26 @@
 //
 
 #import "GWViewController.h"
-
-@interface GWViewController ()
-
-@end
+#import "GWPointClusterView.h"
 
 @implementation GWViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    [self resetCluster];
+//    state = 0;
+//}
 
-- (void)didReceiveMemoryWarning
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    for (UITouch *t in touches) {
-        if ([t tapCount] > 1) {
-            [self reset];
-        }
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        GWPointClusterView *pcv = [[GWPointClusterView alloc] initWithFrame:self.view.frame];
+        [self.view insertSubview:pcv belowSubview:titleLabel];
     }
+    return self;
 }
 
 @end

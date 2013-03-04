@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GWCluster.h"
+#import "GWPoint.h"
 
 @interface GWPointCluster : NSObject
+
+@property (nonatomic) NSMutableArray *points;
+-(void)addPoint:(CGPoint)point;
 
 @end

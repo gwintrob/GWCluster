@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GWPointCluster.h"
 
 @interface GWViewController : UIViewController
-
-@property (nonatomic, weak) GWPointCluster *cluster;
-- (void)reset;
+{
+    IBOutlet UILabel *titleLabel;
+    int state;
+}
 
 @end

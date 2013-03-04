@@ -13,4 +13,7 @@
 
 @property (nonatomic) CGPoint point;
 
+- (id)initWithPoint:(CGPoint)newPoint;
++ (GWPoint *)calculateMeanOfPoints:(NSArray *)points;
+
 @end

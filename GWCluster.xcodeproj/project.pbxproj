@@ -27,6 +27,7 @@
 		FA576D4816DF2367005DC209 /* GWClusterObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA576D4616DF2367005DC209 /* GWClusterObject.m */; };
 		FA576D4C16DF2DB5005DC209 /* GWPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = FA576D4B16DF2DB5005DC209 /* GWPoint.m */; };
 		FA576D5016DF334D005DC209 /* GWPointCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = FA576D4F16DF334D005DC209 /* GWPointCluster.m */; };
+		FA576D5416DF48BB005DC209 /* GWPointClusterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA576D5316DF48BB005DC209 /* GWPointClusterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		FA576D4B16DF2DB5005DC209 /* GWPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPoint.m; sourceTree = "<group>"; };
 		FA576D4E16DF334D005DC209 /* GWPointCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPointCluster.h; sourceTree = "<group>"; };
 		FA576D4F16DF334D005DC209 /* GWPointCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPointCluster.m; sourceTree = "<group>"; };
+		FA576D5216DF48BB005DC209 /* GWPointClusterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPointClusterView.h; sourceTree = "<group>"; };
+		FA576D5316DF48BB005DC209 /* GWPointClusterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPointClusterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,7 @@
 		FA576D0E16DF2299005DC209 /* GWClusterExample */ = {
 			isa = PBXGroup;
 			children = (
+				FA576D5116DF48AA005DC209 /* Views */,
 				FA576D4D16DF3324005DC209 /* Models */,
 				FA576D1716DF2299005DC209 /* GWAppDelegate.h */,
 				FA576D1816DF2299005DC209 /* GWAppDelegate.m */,
@@ -195,6 +199,15 @@
 				FA576D4F16DF334D005DC209 /* GWPointCluster.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FA576D5116DF48AA005DC209 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA576D5216DF48BB005DC209 /* GWPointClusterView.h */,
+				FA576D5316DF48BB005DC209 /* GWPointClusterView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +328,7 @@
 				FA576D4816DF2367005DC209 /* GWClusterObject.m in Sources */,
 				FA576D4C16DF2DB5005DC209 /* GWPoint.m in Sources */,
 				FA576D5016DF334D005DC209 /* GWPointCluster.m in Sources */,
+				FA576D5416DF48BB005DC209 /* GWPointClusterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
