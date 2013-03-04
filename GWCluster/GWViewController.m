@@ -24,7 +24,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // TODO: Override button styling
+
+    // Setup title
+    UITapGestureRecognizer* titleGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(incrementK:)];
+    [titleLabel setUserInteractionEnabled:YES];
+    [titleLabel addGestureRecognizer:titleGesture];
+    
+    // Setup button
+    // http://nathanbarry.com/designing-buttons-ios5/
+    UIImage *buttonImage = [[UIImage imageNamed:@"greyButton.png"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    [clusterButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [clusterButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+}
+
+- (void)incrementK:(UIGestureRecognizer *)gr
+{
+    int currentK = self.pcv.cluster.k;
+    int newK = 1;
+    
+    if (currentK < 5)
+    {
+        newK = currentK + 1;
+    }
+    
+    [self.pcv.cluster setK:newK];
+    [titleLabel setText:[NSString stringWithFormat:@"%d-Means Clustering", newK]];
 }
 
 - (void)clusterPoints:(id)sender

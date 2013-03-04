@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA06AF0316E4886000DF4649 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06AEFE16E4886000DF4649 /* greyButton.png */; };
+		FA06AF0416E4886000DF4649 /* greyButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06AEFF16E4886000DF4649 /* greyButton@2x.png */; };
+		FA06AF0516E4886000DF4649 /* greyButton@2xpng in Resources */ = {isa = PBXBuildFile; fileRef = FA06AF0016E4886000DF4649 /* greyButton@2xpng */; };
+		FA06AF0616E4886000DF4649 /* greyButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06AF0116E4886000DF4649 /* greyButtonHighlight.png */; };
+		FA06AF0716E4886000DF4649 /* greyButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06AF0216E4886000DF4649 /* greyButtonHighlight@2x.png */; };
 		FA576D0916DF2299005DC209 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA576D0816DF2299005DC209 /* UIKit.framework */; };
 		FA576D0B16DF2299005DC209 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA576D0A16DF2299005DC209 /* Foundation.framework */; };
 		FA576D0D16DF2299005DC209 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA576D0C16DF2299005DC209 /* CoreGraphics.framework */; };
@@ -41,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA06AEFE16E4886000DF4649 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
+		FA06AEFF16E4886000DF4649 /* greyButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButton@2x.png"; sourceTree = "<group>"; };
+		FA06AF0016E4886000DF4649 /* greyButton@2xpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "greyButton@2xpng"; sourceTree = "<group>"; };
+		FA06AF0116E4886000DF4649 /* greyButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButtonHighlight.png; sourceTree = "<group>"; };
+		FA06AF0216E4886000DF4649 /* greyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		FA576D0416DF2299005DC209 /* GWCluster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GWCluster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA576D0816DF2299005DC209 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA576D0A16DF2299005DC209 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,6 +109,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA06AF0816E48B6100DF4649 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA576D2016DF2299005DC209 /* GWViewController.h */,
+				FA576D2116DF2299005DC209 /* GWViewController.m */,
+				FA576D2316DF2299005DC209 /* GWViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		FA576CF916DF2299005DC209 = {
 			isa = PBXGroup;
 			children = (
@@ -133,13 +153,11 @@
 		FA576D0E16DF2299005DC209 /* GWClusterExample */ = {
 			isa = PBXGroup;
 			children = (
-				FA576D5116DF48AA005DC209 /* Views */,
+				FA06AF0816E48B6100DF4649 /* Controllers */,
 				FA576D4D16DF3324005DC209 /* Models */,
+				FA576D5116DF48AA005DC209 /* Views */,
 				FA576D1716DF2299005DC209 /* GWAppDelegate.h */,
 				FA576D1816DF2299005DC209 /* GWAppDelegate.m */,
-				FA576D2016DF2299005DC209 /* GWViewController.h */,
-				FA576D2116DF2299005DC209 /* GWViewController.m */,
-				FA576D2316DF2299005DC209 /* GWViewController.xib */,
 				FA576D0F16DF2299005DC209 /* Supporting Files */,
 			);
 			name = GWClusterExample;
@@ -149,6 +167,11 @@
 		FA576D0F16DF2299005DC209 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA06AEFE16E4886000DF4649 /* greyButton.png */,
+				FA06AEFF16E4886000DF4649 /* greyButton@2x.png */,
+				FA06AF0016E4886000DF4649 /* greyButton@2xpng */,
+				FA06AF0116E4886000DF4649 /* greyButtonHighlight.png */,
+				FA06AF0216E4886000DF4649 /* greyButtonHighlight@2x.png */,
 				FA576D1016DF2299005DC209 /* GWCluster-Info.plist */,
 				FA576D1116DF2299005DC209 /* InfoPlist.strings */,
 				FA576D1416DF2299005DC209 /* main.m */,
@@ -287,6 +310,11 @@
 				FA576D1D16DF2299005DC209 /* Default@2x.png in Resources */,
 				FA576D1F16DF2299005DC209 /* Default-568h@2x.png in Resources */,
 				FA576D2516DF2299005DC209 /* GWViewController.xib in Resources */,
+				FA06AF0316E4886000DF4649 /* greyButton.png in Resources */,
+				FA06AF0416E4886000DF4649 /* greyButton@2x.png in Resources */,
+				FA06AF0516E4886000DF4649 /* greyButton@2xpng in Resources */,
+				FA06AF0616E4886000DF4649 /* greyButtonHighlight.png in Resources */,
+				FA06AF0716E4886000DF4649 /* greyButtonHighlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

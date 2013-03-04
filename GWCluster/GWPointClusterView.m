@@ -21,11 +21,11 @@
         [self setBackgroundColor:[UIColor clearColor]];
         [self setMultipleTouchEnabled:YES];
         
-        UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
         singleTapRecognizer.numberOfTapsRequired = 1;
         [self addGestureRecognizer:singleTapRecognizer];
         
-        UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resetCluster:)];
+        UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
         doubleTapRecognizer.numberOfTapsRequired = 2;
         [self addGestureRecognizer:doubleTapRecognizer];
         
@@ -35,19 +35,30 @@
     return self;
 }
 
-- (void)tap:(UIGestureRecognizer *)gr
+- (void)singleTap:(UIGestureRecognizer *)gr
 {
     CGPoint point = [gr locationInView:self];
+    [self addPoint:point];
+}
+
+- (void)doubleTap:(UIGestureRecognizer *)gr
+{
+    [self resetCluster];
+    [self setNeedsDisplay];
+}
+
+
+- (void)addPoint:(CGPoint)point
+{
     [self.cluster addPoint:point];
     [self setNeedsDisplay];
 }
 
--(void)clusterPoints
+- (void)clusterPoints
 {
     [self.cluster clusterPoints];
     [self setNeedsDisplay];
 }
-
 
 // This might be faster than the GestureRecognizer
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -73,15 +84,11 @@
     }
 }
 
-- (void)resetCluster:(UIGestureRecognizer *)gr
+- (void)resetCluster
 {
-    [self resetCluster];
-    [self setNeedsDisplay];
-}
-
-- (void)resetCluster {
     NSLog(@"resetting cluster");
     GWPointCluster *newCluster = [[GWPointCluster alloc] init];
+    [newCluster setK:3];
     [self setCluster:newCluster];
 }
 

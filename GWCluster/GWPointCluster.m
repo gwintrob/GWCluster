@@ -9,7 +9,7 @@
 #import "GWPointCluster.h"
 
 @implementation GWPointCluster
-@synthesize points;
+@synthesize k, points;
 
 - (id)init
 {
@@ -31,17 +31,17 @@
 
 - (void)clusterPoints
 {
-    NSArray *means = [self.points subarrayWithRange:NSMakeRange(0, 3)];
+//    NSArray *means = [self.points subarrayWithRange:NSMakeRange(0, k)];
+    NSArray *means = [self generateMeans];
     GWCluster *cluster = [[GWCluster alloc] initWithObjects:self.points means:means averageCluster:^(NSArray *clusterPoints) {
         return [GWPoint calculateMeanOfPoints:clusterPoints];
     }];
     [cluster run];
     
     NSMutableArray *clusters = cluster.clusters;
-    NSArray *colors = [GWPointCluster generateKColors:[clusters count]];
-    for (int i = 0; i < [clusters count]; i++)
+    NSArray *colors = [self generateColors];
+    for (int i = 0; i < k; i++)
     {
-        NSLog(@"%d: %d", [clusters count], [clusters[i] count]);
         for (GWPoint *point in clusters[i])
         {
             [point setColor:colors[i]];
@@ -49,9 +49,32 @@
     }
 }
 
-+ (NSArray *)generateKColors:(int)k
+- (NSArray *)generateMeans
 {
-    return [[NSArray alloc] initWithObjects:[UIColor redColor], [UIColor greenColor], [UIColor blueColor], nil];
+    NSMutableArray *means = [[NSMutableArray alloc] initWithCapacity:k];
+    
+    for(int i = 0; i < k; i++)
+    {
+        int randomI = arc4random() % k;
+        [means addObject:points[randomI]];
+    }
+    
+    return means;
+}
+
+
+- (NSArray *)generateColors
+{
+    NSMutableArray *colors = [[NSMutableArray alloc] initWithCapacity:k];
+    
+    for(int i = 0; i < k; i++)
+    {
+        double val = ((double)arc4random() / ARC4RANDOM_MAX);
+        UIColor *color = [UIColor colorWithHue:val saturation:1.f brightness:1.f alpha:1.f];
+        [colors addObject:color];
+    }
+    
+    return colors;
 }
 
 @end
